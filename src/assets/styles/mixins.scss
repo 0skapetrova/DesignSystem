@@ -1,0 +1,50 @@
+// пока для примеров
+
+@mixin heading($size: 'md') {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+
+  @if $size == 'sm' {
+    font-size: 1.5rem;
+  } @else if $size == 'md' {
+    font-size: 2rem;
+  } @else if $size == 'lg' {
+    font-size: 2.5rem;
+  }
+}
+
+@mixin button-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-button);
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+}
+
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content; // <- Сюда подставится наш код
+  }
+}
+
+// form.scss или в основном файле стилей
+
+.form-title {
+  // Для десктопа: используем большой размер (lg)
+  @include heading('lg'); // font-size: 2.5rem;
+
+  // Для мобилки: переопределяем на средний размер (md) или маленький (sm)
+  @include mobile {
+    @include heading('md'); // font-size: 2rem; на мобилках
+    // ИЛИ можно точечно изменить только размер:
+    // font-size: 2rem;
+  }
+}

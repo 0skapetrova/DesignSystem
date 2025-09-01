@@ -1,0 +1,10 @@
+@use "./reset" as stylesheet;
+@use "./variables" as *;
+@use "./mixins.scss" as *;
+
+// Импорт @use '/src/assets/fonts/fonts.scss' as stylesheet;
+
+// дальше применяем для body
+body {
+  color: var(--color-text-primary);
+}
