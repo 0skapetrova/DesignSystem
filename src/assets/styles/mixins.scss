@@ -1,16 +1,16 @@
 // пока для примеров
 
-@mixin heading($size: 'md') {
+@mixin heading($size: "md") {
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-text-primary);
   margin-bottom: 1rem;
 
-  @if $size == 'sm' {
+  @if $size == "sm" {
     font-size: 1.5rem;
-  } @else if $size == 'md' {
+  } @else if $size == "md" {
     font-size: 2rem;
-  } @else if $size == 'lg' {
+  } @else if $size == "lg" {
     font-size: 2.5rem;
   }
 }
@@ -28,7 +28,6 @@
   }
 }
 
-
 @mixin mobile {
   @media (max-width: 768px) {
     @content; // <- Сюда подставится наш код
@@ -39,17 +38,15 @@
 
 .form-title {
   // Для десктопа: используем большой размер (lg)
-  @include heading('lg'); // font-size: 2.5rem;
+  @include heading("lg"); // font-size: 2.5rem;
 
   // Для мобилки: переопределяем на средний размер (md) или маленький (sm)
   @include mobile {
-    @include heading('md'); // font-size: 2rem; на мобилках
+    @include heading("md"); // font-size: 2rem; на мобилках
     // ИЛИ можно точечно изменить только размер:
     // font-size: 2rem;
   }
 }
-
-
 
 // Для мобильных устройств
 @mixin mobile {
@@ -74,12 +71,18 @@
 
 // Универсальный миксин с брейкпоинтом на выбор
 @mixin screen($size) {
-  @if $size == 'mobile' {
-    @media (max-width: 767px) { @content; }
-  } @else if $size == 'tablet' {
-    @media (min-width: 768px) and (max-width: 1023px) { @content; }
-  } @else if $size == 'desktop' {
-    @media (min-width: 1024px) { @content; }
+  @if $size == "mobile" {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == "tablet" {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  } @else if $size == "desktop" {
+    @media (min-width: 1024px) {
+      @content;
+    }
   }
 }
 
