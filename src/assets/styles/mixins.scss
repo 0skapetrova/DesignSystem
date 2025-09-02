@@ -48,3 +48,64 @@
     // font-size: 2rem;
   }
 }
+
+
+
+// Для мобильных устройств
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// Для планшетов
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+// Для десктопов
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// Универсальный миксин с брейкпоинтом на выбор
+@mixin screen($size) {
+  @if $size == 'mobile' {
+    @media (max-width: 767px) { @content; }
+  } @else if $size == 'tablet' {
+    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+  } @else if $size == 'desktop' {
+    @media (min-width: 1024px) { @content; }
+  }
+}
+
+// Flex по центру
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flex между
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Flex колонка
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Flex колонка по центру
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
