@@ -1,10 +1,7 @@
-@use "./reset" as stylesheet;
-@use "./variables" as *;
-@use "./mixins.scss" as *;
+@import "./reset.css";
+@import "./variables.css";
+@import "../fonts/fonts.css";
 
-// Импорт @use '/src/assets/fonts/fonts.scss' as stylesheet;
-
-// дальше применяем для body
 body {
   color: var(--color-text-primary);
   font-family: "Montserrat", sans-serif;
