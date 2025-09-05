@@ -1,0 +1,8 @@
+@import "./reset.css";
+@import "./variables.css";
+@import "../fonts/fonts.css";
+
+body {
+  color: var(--color-text-primary);
+  font-family: "Montserrat", sans-serif;
+}
